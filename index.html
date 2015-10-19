@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>polyline2bezier demo</title>
+    <link href='https://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type='text/css'>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: 'Share Tech Mono', monospace;
+      }
+      #wrapper {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+      }
+      #header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width : 100%;
+        background-color: rgba(255, 255, 255, 1); 
+      }
+      #header h1 {
+        display: inline-block;
+        font-size: 16px;
+        margin: 0.5em;
+      }
+      #header p {
+        display: inline-block;
+        font-size: 13px;
+      }
+      #canvas {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        cursor: crosshair;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header id="header">
+        <h1>polyline2bezier demo</h1>
+        <p>(<input type="checkbox" id="is-pathclose" value="" />path close)</p>
+      </header>
+      <svg id="canvas">
+        <defs>
+          <pattern id="grid" patternUnits="userSpaceOnUse"
+            x="0" y="0" width="10" height="10" viewBox="0 0 10 10">
+            <polyline points="0,0 0,10" stroke-width="1" stroke="#0095dd" />
+            <polyline points="0,0 10,0" stroke-width="1" stroke="#0095dd" />
+          </pattern>
+          <marker id="polylinePoint"
+            viewbox="-2.5 -2.5 5 5"
+            markerUnits="userSpaceOnUse" markerWidth="4" markerHeight="4"
+            orient="0">
+            <rect x="-2.5" y="-2.5" width="5" height="5" fill="#0095dd" />
+          </marker>
+          <marker id="pathPoint"
+            viewbox="-4 -4 8 8"
+            markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8"
+            orient="0">
+            <rect x="-2.5" y="-2.5" width="5" height="5" fill="#0095dd" />
+
+          <marker id="pathControllPoint"
+            viewbox="-4 -4 8 8"
+            markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8"
+            orient="0">
+            <circle cx="0" cy="0" r="3" fill="#0095dd" />
+          </marker>
+        </defs>
+        <rect x="0" y="0" width="999999" height="999999" fill="url(#grid)" opacity="0.2" />
+        <polyline id="polyline" fill="none" stroke="#0095dd" points=""
+          opacity="0.5"
+          marker-mid="url(#polylinePoint)"
+          marker-start="url(#polylinePoint)" 
+          marker-end="url(#polylinePoint)" />
+        <path id="path" fill="none" stroke="#0095dd" stroke-width="2"
+          opacity="1" d=""
+          marker-mid="url(#pathPoint)"
+          marker-start="url(#pathPoint)" 
+          marker-end="url(#pathPoint)" />
+      </svg>
+    </div>
+    <script src="https://rawgit.com/ynakajima/polyline2bezier/master/src/polyline2bezier.js"></script>
+    <script src="./demo.js"></script>
+  </body>
+</html>
