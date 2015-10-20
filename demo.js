@@ -57,6 +57,7 @@ function onMouseMove(e) {
     var y = pointer.clientY; 
     mouseLogging(x, y);
     addPoints(x, y);
+    e.preventDefault();
   }
 }
 
