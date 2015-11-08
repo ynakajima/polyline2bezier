@@ -29,9 +29,9 @@
     window.polyline2bezier = polyline2bezier;
   }
 
-  function polyline2bezier(polyline) {
+  function polyline2bezier(polyline, error) {
     var d = [];
-    var error = 4.0;    // Squared error
+    error = error || 4.0;    // Squared error
     bezierSegments = [];
     polyline.forEach(function(point) {
       d.push(new Point2(point[0], point[1]));
