@@ -68,7 +68,7 @@ function onMouseUp() {
     if (isPathclose.checked) {
       points.push(points[0]);
     }
-    var segments = polyline2bezier(points);
+    var segments = polyline2bezier(points, 10);
     drawPath(segments);
     points = [];
     drawPolyline(points);
