@@ -3,7 +3,7 @@
  * fitCurves.js - Piecewise cubic fitting code
  *
  * original: fitCurves.c
- * http://tog.acm.org/resources/GraphicsGems/gems/fitCurves.c
+ * https://github.com/erich666/GraphicsGems/blob/master/gems/FitCurves.c
  *
  * ported by ynakajima (https://github.com/ynakajima).
  *
